@@ -1,0 +1,166 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 10%;
+    --foreground: 60 100% 90%;
+
+    --card: 0 0% 13%;
+    --card-foreground: 60 100% 90%;
+
+    --popover: 0 0% 13%;
+    --popover-foreground: 60 100% 90%;
+
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 60 100% 50%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 60 100% 75%;
+
+    --accent: 50 100% 50%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 60 100% 50%;
+
+    --radius: 0.65rem;
+
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 60 100% 90%;
+    --sidebar-primary: 60 100% 50%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 60 100% 50%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 60 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 60 100% 90%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 60 100% 90%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 60 100% 90%;
+
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 60 100% 50%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 60 100% 75%;
+
+    --accent: 50 100% 50%;
+    --accent-foreground: 0 0% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 60 100% 50%;
+    
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 60 100% 90%;
+    --sidebar-primary: 60 100% 50%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 60 100% 50%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 60 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Quicksand', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  input, textarea, select, button {
+    font-family: inherit;
+  }
+
+  ::selection {
+    @apply bg-accent/20 text-accent-foreground;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/40 shadow-sm;
+  }
+
+  .glass-panel {
+    @apply bg-background/70 backdrop-blur-lg border border-border/30;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-[1.03] active:scale-[0.98];
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .sporty-card {
+    @apply rounded-xl border-0 shadow-md bg-gradient-to-br from-accent/20 to-accent/10 hover:from-accent/30 hover:to-accent/20 transition-all;
+  }
+  
+  .sporty-stats {
+    @apply font-bold text-accent;
+  }
+  
+  .sport-badge {
+    @apply text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-accent/20 text-accent inline-flex items-center;
+  }
+}
+
+.page-transition-enter {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 300ms, transform 300ms;
+}
